@@ -1,7 +1,7 @@
 //Ключ - номер аудитории(1 поле - 1 буква, 2 поле - 3 цифры)
 //КЧ, без повторов, 
 //удаление(замена на минимальный справа), 
-//7 - Сравнить два дерева(два дерева равны, если содержат одинаковые элементы)
+//7 - Сравнить два дерева по значению (два дерева равны, если содержат одинаковые элементы)
 
 #include <iostream>
 #include <tuple>
@@ -61,7 +61,7 @@ void rightrotate(node*& root, node* x)
     x->parent = y;
 }
 
-void draw(node* root, int h)
+void draw(node* root, int h)//вывод дерева положеного на бок
 {
     if (root != tnull)
     {
@@ -302,7 +302,7 @@ void rb_delete(node*& root, nodekey* userkey)
 }
 
 
-bool inorder(node* first, node* second)
+bool inorder(node* first, node* second)//сравнение деревьев
 {
     if (std::tie(first->key.literal, first->key.digit) == std::tie(second->key.literal, second->key.digit))
         return false;
@@ -326,9 +326,6 @@ void deletetree(node*& root)
     if (root->left == tnull and root->right == tnull) { delete(root); root = tnull; }
 
 }
-
-
-
 
 int main()
 {
